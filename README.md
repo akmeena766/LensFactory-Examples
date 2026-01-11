@@ -5,6 +5,6 @@ This repository contains examples for [`LensFactory`](https://github.com/akmeena
 
    2. <ins>Example-2: Basic strong lensing</ins>: This example describes how to construct simple isolated lens models as well as lens models made of multiple components. In addition, it also shows use of in-built plotting functions using `Makie` package.
 
-   3. <ins>Example-3: Lensing quantities</ins>: This example describes how to calculate different lensing quantities and plot them manually. I have created a function named `plot_sky` which initiates a nice looking empty plot that one can use.
+   3. <ins>Example-3: Lensing quantities</ins>: This example describes how to calculate different lensing quantities and plot them manually. `LensFacotry` has an in-built function named `plot_sky` which initiates a nice looking empty plot that one can use.
 
    4. <ins>Example-4: Multi-plane lensing</ins>: This example uses `MultiPlane` module in `LensFacotry` to describe basics of multiplane lensing, such as initializing a double lens plane, use of in-built multi-plane plotting functions, and calculaitng various lensing quantities.
