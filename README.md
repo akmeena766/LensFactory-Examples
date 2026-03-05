@@ -4,7 +4,7 @@ This repository contains examples for [`LensFactory`](https://github.com/akmeena
 - **Basic lensing:**
    1. <ins>Example-1: Constants and Cosmology</ins>: This example describes the basic use of available `Constants` and `Cosmology` modules in `LensFactory` package.
 
-   2. <ins>Example-2: Basic strong lensing</ins>: This example describes how to construct simple isolated lens models as well as lens models made of multiple components. In addition, it also shows use of in-built plotting functions using `Makie` package.
+   2. <ins>Example-2: Basic strong lensing</ins>: This example describes how to construct simple isolated lens models as well as lens models made of multiple components. In addition, it also shows the use of in-built plotting functions using `Makie` package.
 
    3. <ins>Example-3: Lensing quantities</ins>: This example describes how to calculate different lensing quantities and plot them manually. `LensFacotry` has an in-built function named `plot_sky` which initiates a nice looking empty plot that one can use.
 
