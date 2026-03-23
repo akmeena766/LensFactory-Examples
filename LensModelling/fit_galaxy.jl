@@ -6,7 +6,7 @@ using JLD2
 # Random.seed!(123)
 
 # Parse the YAML file
-parameters = LensModel.read_input("param_direct.yaml")
+parameters = LensModel.read_input("parameter_galaxy.yaml")
 
 chains, log_likelihood = LensModel.fit_model(parameters)
 
