@@ -1,0 +1,64 @@
+observation:
+  modeler: LensFactory
+  lens: Simulated system
+  z_d: 0.5
+  reference: [0.0, 0.0]
+  pixel_scale: 0.05
+  FOV: [5, 5]
+
+cosmology:
+  H0: 70.0
+  Omega_m0: 0.3
+  Omega_r0: 0.0
+  Omega_w0: 0.7
+
+source:
+  total_sources: 1
+  use_parity: false
+  parity_force: 1000
+  source1:
+    z_s: 1.5
+    total_knots: 1
+    knot1:
+      x: [+1.01, +1.11, +1.01, -0.41]
+      y: [+0.46, +0.00, -0.46, +0.00]
+      sigma_x: [0.01, 0.01, 0.01, 0.01]
+      sigma_y: [0.01, 0.01, 0.01, 0.01]
+      sigma_theta: [0.0, 0.0, 0.0, 0.0]
+      parity: [+1, +1, +1, +1]
+
+lens_model:
+  multiplane: false
+  total_lenses: 1
+  lens1:
+    lens: SIELens
+    x_c: 0.0
+    y_c: 0.0
+    v_d:
+      value: 250.0
+      range: [200.0, 300.0]
+    x_s: 0.0
+    eps: 
+      value: 0.2
+      range: [0.1, 0.5]
+    pa: 
+      value: 0.0
+      range: [-10.0, 10.0]
+
+sampling:
+  scheme: sourceplane
+  verbose: true
+  optimizer:
+    enabled: true
+    convergence:
+      run_mode: random
+      max_runs: 100
+      tolerance: 1E-2
+    NM:
+      max_iter: 100000
+      tolerance: 1e-6
+  mcmc:
+    enabled: true
+    n_chains: 12
+    AIES:
+      n_steps: 500000
