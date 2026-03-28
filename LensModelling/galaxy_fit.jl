@@ -1,6 +1,5 @@
 using LensFactory
 using GLMakie
-using JLD2
 
 # using Random
 # Random.seed!(123)
@@ -12,7 +11,7 @@ chains, log_likelihood = LensModel.fit_model(parameters)
 
 free_params = LensModel.free_parameter_names(parameters)
 
-LensModel.get_best_fit_rms(parameters, chains, log_likelihood)
+# LensModel.get_best_fit_rms(parameters, chains, log_likelihood)
 
 # LensModel.print_gr_report(chains, param_names=free_params, burn_in=0.4)
 
