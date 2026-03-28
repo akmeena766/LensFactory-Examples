@@ -15,4 +15,9 @@ This repository contains examples for [`LensFactory`](https://github.com/akmeena
       1. `galaxy_mock.jl`: Generates a mock galaxy lens system using `SIE` lens model.
       2. `galaxy_fit.jl`: Fits the mock galaxy lens system using `SIE` lens model based on the input parameters from `galaxy_parameters.yaml` file. By default, the fit is saved into a `JLD2` file.
       3. `galaxy_read.jl`: Reads the `JLD2` file. After reading, we can perform various diagnostics on the fit.
+   
+   2. <ins>ClusterLens</ins>: This folder contains multiple scripts to fit a mock cluster-scale lens.
+      1. coming soon
+      2. coming soon
+      3. coming soon
 
