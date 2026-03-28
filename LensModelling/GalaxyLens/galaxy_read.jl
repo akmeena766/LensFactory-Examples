@@ -1,42 +1,32 @@
 using LensFactory
+using JLD2
 using GLMakie
 
-using JLD2
-
-# LensModel.save_best_fit("Simulated system_2026-03-05.jld2")
-
-data = jldopen("Simulated system_2026-03-24.jld2", "r")
+# Read the JLD2 file
+data = jldopen("galaxy_2026-03-28.jld2", "r")
 results = data["optimizer"]
 chains = data["chains"]
 parameters = data["model"]
 chi2 = data["chi2"]
 close(data)
 
-# free_params = LensModel.free_parameter_names(parameters)
+# Get free parameter names
+free_params = LensModel.free_parameter_names(parameters)
 
-# fig = LensModel.plot_corner(results; param_names=free_params)
-# display(fig)
+# Get best fit rms
+LensModel.get_best_fit_rms(parameters, chains, log_likelihood)
 
-# Sort results (Best chi2 first)
-sort!(results, by = x -> x.f, rev = true)
-best_θ = results[1].θ
-best_val = results[1].f
+# Print GR report
+LensModel.print_gr_report(chains, param_names=free_params, burn_in=0.4)
 
-same_theta = 0
-same_chi2 = 0
-for r in results
-    # Calculate relative difference for parameters (avoiding division by zero)
-    println(r.θ)
-    rel_diff_θ = abs.(r.θ .- best_θ) ./ (abs.(best_θ) .+ 1e-8)
-    println(rel_diff_θ)
-    if all(rel_diff_θ .< 1E-2)
-        global same_theta += 1
-    end
+# Time series diagnostics
+LensModel.time_series_diagnostics(chains, param_names=free_params)
 
-    rel_diff_f = abs.(r.f - best_val) ./ (abs(best_val) + 1e-8)
-    if all(rel_diff_f .< 1E-2)
-        global same_chi2 += 1
-    end
-end
-println("same_theta: ", same_theta)
-println("same_chi2: ", same_chi2)
+# Acceptance diagnostics
+LensModel.acceptance_diagnostics(chains, burn_in=0.4)
+
+# Corner plot
+fig = LensModel.plot_corner(chains, log_likelihood; param_names=free_params, burn_in=0.4)
+
+# Plot best model
+fig = LensModel.plot_best_model(parameters, chains, log_likelihood)

@@ -11,3 +11,8 @@ This repository contains examples for [`LensFactory`](https://github.com/akmeena
    4. <ins>Example-4: Multi-plane lensing</ins>: This example uses `MultiPlane` module in `LensFacotry` to describe basics of multiplane lensing, such as initializing a double lens plane, use of in-built multi-plane plotting functions, and calculaitng various lensing quantities.
 
 - **Lens modelling:**
+   1. <ins>GalaxyLens</ins>: This folder contains multiple scripts to generate and fit a mock galaxy-scale lens.
+      1. `galaxy_mock.jl`: Generates a mock galaxy lens system using `SIE` lens model.
+      2. `galaxy_fit.jl`: Fits the mock galaxy lens system using `SIE` lens model based on the input parameters from `galaxy_parameters.yaml` file. By default, the fit is saved into a `JLD2` file.
+      3. `galaxy_read.jl`: Reads the `JLD2` file. After reading, we can perform various diagnostics on the fit.
+
