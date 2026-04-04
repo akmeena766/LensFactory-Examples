@@ -17,7 +17,7 @@ adis = Dls/Dos
 
 
 x, y = Lenses.get_meshgrid(2, 2, 0.04)
-lens = Lenses.init_SIELens(v_d=230E3, x_s=0.0, eps=0.3, pa=0)
+lens = Lenses.init_SIELens(v_d=230, x_s=0.0, eps=0.3, pa=0)
 
 β = (0.35, 0.00)
 im_pos = Lenses.get_image(lens, x, y, adis, β)
