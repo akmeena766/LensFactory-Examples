@@ -1,0 +1,96 @@
+observation:
+  modeler: LensFactory
+  lens: Simulated system
+  z_d: 0.507
+  reference: [0.0, 0.0]
+  pixel_scale: 0.05
+  FOV: [200, 200]
+
+cosmology:
+  H0: 72.0
+  Omega_m0: 0.24
+  Omega_r0: 0.04
+  Omega_w0: 0.72
+
+source:
+  from_file: true
+  source_file: source.txt
+
+scaling_relation:
+  ref_mag: 19.5
+  ref_sigma: 
+    value: 100.0
+    range: [60.0, 150.0]
+  ref_core: 0.0
+  ref_cut: 
+    value: 8.0
+    range: [1.0, 25.0]
+  slope_sigma: 0.25
+  slope_core: 0.50
+  slope_cut: 0.50
+
+lens_model:
+  multiplane: false
+  total_lenses: 3
+  lens1:
+    lens: aNFWLens
+    x_c:
+      value: 0.0
+      range: [-2.0, 2.0]
+    y_c:
+      value: 0.0
+      range: [-2.0, 2.0]
+    mass:
+      value: 13.0
+      range: [12.0, 16.0]
+    c:
+      value: 10.0
+      range: [3.0, 15.0]
+    eps:
+      value: 0.5
+      range: [0.0, 0.7]
+    pa:
+      value: 135.0
+      range: [90.0, 180.0]
+  lens2:
+    lens: aNFWLens
+    x_c:
+      value: -19.5408
+      range: [-21.0, -17.0]
+    y_c:
+      value: +2.3782
+      range: [0.0, 4.0]
+    mass:
+      value: 13.0
+      range: [12.0, 16.0]
+    c:
+      value: 10.0
+      range: [3.0, 15.0]
+    eps:
+      value: 0.5
+      range: [0.0, 0.7]
+    pa:
+      value: 135.0
+      range: [90.0, 180.0]
+  lens3:
+    lens: MultiPJELens
+    from_file: true
+    galaxy_file: cluster_galaxies.txt
+
+sampling:
+  scheme: sourceplane
+  verbose: true
+  optimizer:
+    enabled: true
+    convergence:
+      run_mode: random
+      max_runs: 1000
+      tolerance: 1E-4
+    NM:
+      max_iter: 100000
+      tolerance: 1e-6
+  mcmc:
+    enabled: true
+    n_chains: 32
+    AIES:
+      n_steps: 500000
