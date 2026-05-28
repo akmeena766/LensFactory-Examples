@@ -15,15 +15,19 @@ Dls = Cosmology.angular_diameter_distance(cosmo, zl, zs)
 Dos = Cosmology.angular_diameter_distance(cosmo, 0., zs)
 adis = Dls/Dos
 
-
+# Generate grid
 x, y = Lenses.get_meshgrid(2, 2, 0.04)
+
+# Create an SIE lens model with zero core radius
 lens = Lenses.init_SIELens(v_d=230, x_s=0.0, eps=0.3, pa=0)
 
+# Calculate image positions
 β = (0.35, 0.00)
 im_pos = Lenses.get_image(lens, x, y, adis, β)
 for pos in im_pos
    println("Image position: ", round.(pos, digits=2))
 end
 
+# Create plot and display
 fig, ax = Lenses.plot_image_plane(lens, x, y, adis; source=β)
 display(fig)
