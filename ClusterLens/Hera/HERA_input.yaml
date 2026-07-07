@@ -1,0 +1,112 @@
+observation:
+  modeler: LensFactory
+  lens: Hera
+  z_d: 0.507
+  reference: [0.0, 0.0]
+  pixel_scale: 0.05
+  FOV: [200, 200]
+
+
+cosmology:
+  H0: 72.0
+  Omega_m0: 0.24
+  Omega_r0: 0.04
+  Omega_w0: 0.72
+
+
+source:
+  from_file: true
+  source_file: HERA_images.txt
+
+
+scaling_relation:
+  ref_mag: 19.83
+  ref_sigma: 
+    value: 100.0
+    range: [50.0, 200.0]
+  ref_core: 0.0
+  ref_cut: 
+    value: 20.0
+    range: [1.0, 100.0]
+  slope_sigma: 0.25
+  slope_core: 0.50
+  slope_cut: 0.50
+
+
+lens_model:
+  multiplane: false
+  total_lenses: 5
+  lens1:
+    lens: aNFWLens
+    x_c: 0.0
+    y_c: 0.0
+    mass:
+      value: 13.0
+      range: [12.0, 15.0]
+    c:
+      value: 5.0
+      range: [2.0, 10.0]
+    eps:
+      value: 0.2
+      range: [0.0, 0.6]
+    pa:
+      value: 135.0
+      range: [90.0, 180.0]
+  lens2:
+    lens: aNFWLens
+    x_c: -19.5408
+    y_c: +2.3782
+    mass:
+      value: 14.0
+      range: [13.0, 16.0]
+    c:
+      value: 5.0
+      range: [2.0, 10.0]
+    eps:
+      value: 0.4
+      range: [0.0, 0.6]
+    pa:
+      value: 135.0
+      range: [90.0, 180.0]
+  lens3:
+    lens: ExternalEffects
+    kappa: 0.0
+    gamma:
+      value: 0.1
+      range: [0.0, 0.3]
+    angle:
+      value: 45.0
+      range: [-45.0, 45.0]
+  lens4:
+    lens: Multipole
+    m: 3
+    n: 2
+    delta:
+      value: 0.1
+      range: [0.0, 0.2]
+    angle:
+      value: 45.0
+      range: [0.0, 90.0]
+  lens5:
+    lens: MultiPJELens
+    from_file: true
+    galaxy_file: HERA_cluster_gals.txt
+
+
+sampling:
+  scheme: SourcePlane
+  verbose: true
+  optimizer:
+    enabled: true
+    convergence:
+      run_mode: random
+      max_runs: 10000
+      tolerance: 0.1
+    NM:
+      max_iter: 100000
+      tolerance: 1e-6
+  mcmc:
+    enabled: true
+    n_chains: 32
+    AIES:
+      n_steps: 100000
