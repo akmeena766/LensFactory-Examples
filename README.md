@@ -10,7 +10,7 @@ modeling package, accompanying [Meena (2026)](https://arxiv.org/abs/aaaa.bbbbb).
 The examples are validated against `LensFactory.jl` v0.0.9.
 
 ```julia-repl
-pkg> add LensFactory@X.Y.Z
+pkg> add LensFactory@0.0.9
 ```
 
 Lens fitting benefits from multi-threading; run scripts with, e.g.,
@@ -41,28 +41,13 @@ extension of `LensFactory`).
 - **MockLens** — complete end-to-end workflow: generate a mock quad lens
   (`galaxy_mock.jl`), fit it (`galaxy_fit.jl`), and inspect the results
   (`galaxy_read.jl`). Start here.
-- **HE0435-1223** — modeling the quadruply imaged quasar HE 0435−1223 using
-  observed image positions. <!-- verify designation; add fit script + data -->
 
 ---
 ## Cluster-Scale Lenses
 
 Input YAML configurations and constraint catalogs for the cluster
-reconstructions presented in Meena (2026):
+reconstructions presented in [Meena (2026)](https://arxiv.org/abs/aaaa.bbbbb):
 
 - **Ares** — simulated cluster from the Meneghetti et al. (2017) frontier
   fields lens modeling challenge (85 sources / 242 images)
-- **Hera** — simulated cluster from the same challenge (19 sources / 65 images)
-- **SMACS_J0723** — JWST-observed cluster, using the multiple-image and
-  cluster-galaxy catalogs of Caminha et al. (2022)
-
-Each directory contains `input.yaml` together with the multiple-image
-(`source.txt`) and cluster-galaxy (`cluster_galaxies.txt`) catalogs, and can
-be run as
-
-```bash
-julia -t auto run_fit.jl input.yaml
-```
-
-Typical runtimes and the resulting best-fit image-plane RMS values are quoted
-in Secs. 4 and 5 of the paper.
+- **Hera** — simulated cluster from the same challenge (19 sources / 65 images).
