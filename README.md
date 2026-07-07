@@ -30,7 +30,7 @@ extension of `LensFactory`).
 | 2 | [Point mass lens](Basic/Example2_Point_mass_lens.ipynb)                 | Isolated and multiple point lenses; built-in plotting      |
 | 3 | [Plummer lens model](Basic/Example3_Plummer_lens_model.ipynb)           | Isolated and multiple Plummer lenses; built-in plotting    |
 | 4 | [Lensing quantities](Basic/Example4_Lensing_quantities.ipynb)           | Computing and manually plotting lensing quantities         |
-| 5 | [Multi-plane lensing](Basic/Example5_Multi-plane_lensing.ipynb)         | `MultiPlane` module: double lens plane, lensing quantities |
+| 5 | [Multi-plane lensing](Basic/Example5_MultiPlane_lensing.ipynb)          | `MultiPlane` module: double lens plane, lensing quantities |
 | 6 | [Singularity maps](Basic/Example6_Singularity_maps.ipynb)               | `SingularityMap` module: A3-lines and point singularities  |
 
 
