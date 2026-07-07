@@ -2,7 +2,8 @@
 
 Worked examples for the [`LensFactory.jl`](https://github.com/akmeena766/LensFactory.jl) strong lens
 modeling package, accompanying [Meena (2026)](https://arxiv.org/abs/aaaa.bbbbb).
-Basic familiarity with Julia is assumed.
+
+***Basic familiarity with Julia is assumed.***
 
 ---
 ## Setup
