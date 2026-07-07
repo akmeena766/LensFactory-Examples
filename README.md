@@ -1,22 +1,67 @@
 # LensFactory-Examples
 
-This repository contains examples for [`LensFactory`](https://github.com/akmeena766/LensFactory.jl) package. Here I assume that user knows basics of Julia. The list (and small description) of these examples is as follows:
-- **Basic lensing:**
-   1. <ins>Example-1: Constants and Cosmology</ins>: This example describes the basic use of available `Constants` and `Cosmology` modules in `LensFactory` package.
+Worked examples for the [`LensFactory.jl`](https://github.com/akmeena766/LensFactory.jl) strong lens
+modeling package, accompanying [Meena (2026)](https://arxiv.org/abs/aaaa.bbbbb).
+Basic familiarity with Julia is assumed.
 
-   2. <ins>Example-2: Point mass lens</ins>: This example describes how to construct simple isolated point lens model as well as lens made of multiple point lenses. In addition, it also shows the use of in-built plotting functions using `Makie` package.
-   
-   3. <ins>Example-23: Plummer lens model</ins>: This example describes how to construct simple isolated Plummer lens model as well as lens made of multiple Plummer lenses. In addition, it also shows the use of in-built plotting functions using `Makie` package.
-   
-   4. <ins>Example-4: Lensing quantities</ins>: This example describes how to calculate different lensing quantities and plot them manually instead of using in-built functions. In principle, while plotting, we can start from creating a figure but `LensFactory` has this one function plot, `plot_sky`, which can be used to quickly generate an empty plane and then plot any quantity on top of it.
+---
+## Setup
+The examples are validated against `LensFactory.jl` v0.0.9.
 
-   5. <ins>Example-5: Multi-plane lensing</ins>: This example uses `MultiPlane` module in `LensFacotry` to describe basics of multiplane lensing, such as initializing a double lens plane, use of in-built multi-plane plotting functions, and calculaitng various lensing quantities.
+```julia-repl
+pkg> add LensFactory@X.Y.Z
+```
 
-- **ClusterLens**: This folder contains scripts for the follwing galaxy cluster lenses.
-   1. Ares
-   2. Hera
+Lens fitting benefits from multi-threading; run scripts with, e.g.,
+```bash
+julia -t auto galaxy_fit.jl
+```
 
-- **GalaxyLens:** This folder contains multiple scripts to generate and fit a mock galaxy-scale lens.
-   1. MockLens
-   2. HE0435-1123
+Plotting in the notebooks requires `Makie` (loaded automatically as a package
+extension of `LensFactory`).
 
+---
+
+## Basic Lensing (Jupyter Notebooks)
+
+| # | Notebook                                                                | Covers                                                     |
+|---|-------------------------------------------------------------------------|------------------------------------------------------------|
+| 1 | [Constants and Cosmology](Basic/Example1_Constants_and_Cosmology.ipynb) | `Constants` and `Cosmology` modules                        |
+| 2 | [Point mass lens](Basic/Example2_Point_mass_lens.ipynb)                 | Isolated and multiple point lenses; built-in plotting      |
+| 3 | [Plummer lens model](Basic/Example3_Plummer_lens_model.ipynb)           | Isolated and multiple Plummer lenses; built-in plotting    |
+| 4 | [Lensing quantities](Basic/Example4_Lensing_quantities.ipynb)           | Computing and manually plotting lensing quantities         |
+| 5 | [Multi-plane lensing](Basic/Example5_Multi-plane_lensing.ipynb)         | `MultiPlane` module: double lens plane, lensing quantities |
+| 6 | [Singularity maps](Basic/Example6_Singularity_maps.ipynb)               | `SingularityMap` module: A3-lines and point singularities  |
+
+
+---
+## Galaxy-Scale Lenses
+
+- **MockLens** — complete end-to-end workflow: generate a mock quad lens
+  (`galaxy_mock.jl`), fit it (`galaxy_fit.jl`), and inspect the results
+  (`galaxy_read.jl`). Start here.
+- **HE0435-1223** — modeling the quadruply imaged quasar HE 0435−1223 using
+  observed image positions. <!-- verify designation; add fit script + data -->
+
+---
+## Cluster-Scale Lenses
+
+Input YAML configurations and constraint catalogs for the cluster
+reconstructions presented in Meena (2026):
+
+- **Ares** — simulated cluster from the Meneghetti et al. (2017) frontier
+  fields lens modeling challenge (85 sources / 242 images)
+- **Hera** — simulated cluster from the same challenge (19 sources / 65 images)
+- **SMACS_J0723** — JWST-observed cluster, using the multiple-image and
+  cluster-galaxy catalogs of Caminha et al. (2022)
+
+Each directory contains `input.yaml` together with the multiple-image
+(`source.txt`) and cluster-galaxy (`cluster_galaxies.txt`) catalogs, and can
+be run as
+
+```bash
+julia -t auto run_fit.jl input.yaml
+```
+
+Typical runtimes and the resulting best-fit image-plane RMS values are quoted
+in Secs. 4 and 5 of the paper.
