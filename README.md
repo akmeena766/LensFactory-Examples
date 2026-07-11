@@ -7,10 +7,10 @@ modeling package, accompanying [Meena (2026)](https://arxiv.org/abs/aaaa.bbbbb).
 
 ---
 ## Setup
-The examples are validated against `LensFactory.jl` v0.0.9.
+The examples are validated against the latest version of `LensFactory.jl`.
 
 ```julia-repl
-pkg> add LensFactory@0.0.9
+pkg> add LensFactory
 ```
 
 Lens fitting benefits from multi-threading; run scripts with, e.g.,

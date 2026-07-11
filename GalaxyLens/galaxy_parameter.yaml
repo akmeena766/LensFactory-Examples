@@ -1,6 +1,6 @@
 observation:
   modeler: LensFactory
-  lens: galaxy
+  lens: MockLens
   z_d: 0.5
   reference: [0.0, 0.0]
   pixel_scale: 0.05
@@ -46,7 +46,7 @@ lens_model:
       range: [-10.0, 10.0]
 
 sampling:
-  scheme: sourceplane
+  scheme: SourcePlane
   verbose: true
   optimizer:
     enabled: true
@@ -59,6 +59,6 @@ sampling:
       tolerance: 1e-6
   mcmc:
     enabled: true
-    n_chains: 12
     AIES:
+      n_chains: 12
       n_steps: 500000
