@@ -10,27 +10,13 @@ observation:
 cosmology:
   H0: 72.0
   Omega_m0: 0.24
-  Omega_r0: 0.04
-  Omega_w0: 0.72
+  Omega_r0: 0.00
+  Omega_w0: 0.76
 
 
 source:
   from_file: true
-  source_file: HERA_images.txt
-
-
-scaling_relation:
-  ref_mag: 19.83
-  ref_sigma: 
-    value: 100.0
-    range: [50.0, 200.0]
-  ref_core: 0.0
-  ref_cut: 
-    value: 20.0
-    range: [1.0, 100.0]
-  slope_sigma: 0.25
-  slope_core: 0.50
-  slope_cut: 0.50
+  source_file: source.txt
 
 
 lens_model:
@@ -90,7 +76,19 @@ lens_model:
   lens5:
     lens: MultiPJELens
     from_file: true
-    galaxy_file: HERA_cluster_gals.txt
+    galaxy_file: cluster_galaxies.txt
+    scaling_relation:
+      ref_mag: 19.83
+      ref_sigma: 
+        value: 100.0
+        range: [50.0, 200.0]
+      ref_core: 0.0
+      ref_cut: 
+        value: 20.0
+        range: [1.0, 100.0]
+      slope_sigma: 0.25
+      slope_core: 0.50
+      slope_cut: 0.50
 
 
 sampling:
@@ -107,6 +105,6 @@ sampling:
       tolerance: 1e-6
   mcmc:
     enabled: true
-    n_chains: 32
     AIES:
+      n_chains: 32
       n_steps: 100000
