@@ -14,20 +14,7 @@ cosmology:
 
 source:
   from_file: true
-  source_file: ARES_images.txt
-
-scaling_relation:
-  ref_mag: 18.5
-  ref_sigma: 
-    value: 100.0
-    range: [50.0, 200.0]
-  ref_core: 0.0
-  ref_cut: 
-    value: 30.0
-    range: [1.0, 100.0]
-  slope_sigma: 0.25
-  slope_core: 0.50
-  slope_cut: 0.50
+  source_file: source.txt
 
 lens_model:
   multiplane: false
@@ -118,7 +105,19 @@ lens_model:
   lens6:
     lens: MultiPJELens
     from_file: true
-    galaxy_file: ARES_cluster_gals.txt
+    galaxy_file: cluster_galaxies.txt
+    scaling_relation:
+      ref_mag: 18.5
+      ref_sigma: 
+        value: 100.0
+        range: [50.0, 200.0]
+      ref_core: 0.0
+      ref_cut: 
+        value: 30.0
+        range: [1.0, 100.0]
+      slope_sigma: 0.25
+      slope_core: 0.50
+      slope_cut: 0.50
 
 sampling:
   scheme: SourcePlane
@@ -134,6 +133,6 @@ sampling:
       tolerance: 1e-6
   mcmc:
     enabled: true
-    n_chains: 48
     AIES:
+      n_chains: 48
       n_steps: 100000
