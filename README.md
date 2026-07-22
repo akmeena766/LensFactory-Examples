@@ -1,28 +1,11 @@
 # LensFactory-Examples
 
-Worked examples for the [`LensFactory.jl`](https://github.com/akmeena766/LensFactory.jl) strong lens
-modeling package, accompanying [Meena (2026)](https://arxiv.org/abs/aaaa.bbbbb).
+Worked examples for the [`LensFactory.jl`](https://github.com/akmeena766/LensFactory.jl) strong 
+lens modeling package, accompanying [Meena (2026)](https://arxiv.org/abs/aaaa.bbbbb).
 
 **Basic familiarity with Julia is assumed.**
 
 ---
-## Setup
-The examples are validated against the latest version of `LensFactory.jl`.
-
-```julia-repl
-pkg> add LensFactory
-```
-
-Lens fitting benefits from multi-threading; run scripts with, e.g.,
-```bash
-julia -t auto galaxy_fit.jl
-```
-
-Plotting in the notebooks requires `Makie` (loaded automatically as a package
-extension of `LensFactory`).
-
----
-
 ## Basic Lensing (Jupyter Notebooks)
 
 | # | Notebook                                                                | Covers                                                     |
@@ -38,9 +21,8 @@ extension of `LensFactory`).
 ---
 ## Galaxy-Scale Lenses
 
-- **MockLens** — complete end-to-end workflow: generate a mock quad lens
-  (`galaxy_mock.jl`), fit it (`galaxy_fit.jl`), and inspect the results
-  (`galaxy_read.jl`). Start here.
+- **MockLens** — complete end-to-end workflow: generate a mock quad lens (`galaxy_mock.jl`), fit 
+  it (`galaxy_fit.jl`), and inspect the results (`galaxy_read.jl`).
 
 ---
 ## Cluster-Scale Lenses
@@ -48,6 +30,7 @@ extension of `LensFactory`).
 Input YAML configurations and constraint catalogs for the cluster
 reconstructions presented in [Meena (2026)](https://arxiv.org/abs/aaaa.bbbbb):
 
-- **Ares** — simulated cluster from the Meneghetti et al. (2017) frontier
-  fields lens modeling challenge (85 sources / 242 images)
+- **Ares** — simulated cluster from the 
+  [Meneghetti et al. (2017)](https://scixplorer.org/abs/2017MNRAS.472.3177M/abstract) 
+  frontier fields lens modeling challenge (85 sources / 242 images)
 - **Hera** — simulated cluster from the same challenge (19 sources / 65 images).
