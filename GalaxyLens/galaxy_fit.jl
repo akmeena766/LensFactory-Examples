@@ -1,5 +1,4 @@
 using LensFactory
-using GLMakie
 
 # Parse the YAML file
 parameters = LensModel.read_input("galaxy_parameter.yaml")
